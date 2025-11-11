@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+import { Layout } from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
 
 const Services = () => {
@@ -37,61 +36,83 @@ const Services = () => {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "AI Development Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "ABOH"
+    },
+    "areaServed": "Worldwide",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Services",
+      "itemListElement": services.map(service => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description
+        }
+      }))
+    }
+  };
+
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      
-      <main>
-        {/* Hero Section */}
-        <section className="px-4 py-20 md:py-28">
-          <div className="container mx-auto max-w-4xl">
-            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-brand animate-fade-in">
-              What we deliver
-            </p>
-            <h1 className="mb-6 animate-slide-up">
-              End-to-end AI programs built for scale.
-            </h1>
-            <p className="text-xl text-muted-foreground animate-slide-up" style={{ animationDelay: "100ms" }}>
-              From discovery workshops through launch, we blend design, engineering, and change management to unlock value fast.
-            </p>
-          </div>
-        </section>
+    <Layout 
+      title="AI Services"
+      description="End-to-end AI programs built for scale. From discovery workshops through launch, we blend design, engineering, and change management to unlock value fast."
+      keywords="AI software development, ChatGPT application development, AI consultancy, machine learning services, AI strategy"
+      structuredData={structuredData}
+    >
+      {/* Hero Section */}
+      <section className="px-4 py-20 md:py-28">
+        <div className="container mx-auto max-w-4xl">
+          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-400 animate-fade-in">
+            What we deliver
+          </p>
+          <h1 className="mb-6 text-white animate-slide-up">
+            End-to-end AI programs built for scale.
+          </h1>
+          <p className="text-xl text-gray-300 animate-slide-up" style={{ animationDelay: "100ms" }}>
+            From discovery workshops through launch, we blend design, engineering, and change management to unlock value fast.
+          </p>
+        </div>
+      </section>
 
-        {/* Services List */}
-        <section className="px-4 py-20">
-          <div className="container mx-auto max-w-5xl space-y-8">
-            {services.map((service, index) => (
-              <article 
-                key={service.title}
-                className="rounded-lg border border-border bg-card p-8 shadow-soft transition-smooth hover:shadow-medium animate-slide-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+      {/* Services List */}
+      <section className="px-4 py-20">
+        <div className="container mx-auto max-w-5xl space-y-8">
+          {services.map((service, index) => (
+            <article 
+              key={service.title}
+              className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10 animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <h2 className="text-white">{service.title}</h2>
+              <p className="mb-6 text-lg text-gray-300 leading-relaxed">
+                {service.description}
+              </p>
+              <ul className="mb-6 space-y-3">
+                {service.features.map((feature) => (
+                  <li key={feature} className="flex items-start text-gray-300">
+                    <span className="mr-3 mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-sky-400"></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center text-sky-400 font-medium transition-smooth hover:translate-x-1 hover:text-sky-300"
               >
-                <h2 className="mb-4">{service.title}</h2>
-                <p className="mb-6 text-lg text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-                <ul className="mb-6 space-y-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start text-muted-foreground">
-                      <span className="mr-3 mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link 
-                  to="/contact" 
-                  className="inline-flex items-center text-brand font-medium transition-smooth hover:translate-x-1"
-                >
-                  {service.link} <ArrowRight className="ml-2" size={16} />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+                {service.link} <ArrowRight className="ml-2" size={16} />
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+    </Layout>
   );
 };
 
