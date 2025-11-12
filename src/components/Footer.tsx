@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,6 +17,35 @@ export const Footer = () => {
                   hello@aboh.ai
                 </a>
               </p>
+            </div>
+            <div className="mt-4 flex gap-4 text-gray-300">
+              <a
+                href="https://twitter.com/aboh"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="ABOH on Twitter"
+                className="hover:text-sky-400 transition-smooth"
+              >
+                <Twitter size={18} />
+              </a>
+              <a
+                href="https://facebook.com/aboh"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="ABOH on Facebook"
+                className="hover:text-sky-400 transition-smooth"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://instagram.com/aboh"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="ABOH on Instagram"
+                className="hover:text-sky-400 transition-smooth"
+              >
+                <Instagram size={18} />
+              </a>
             </div>
           </div>
 
