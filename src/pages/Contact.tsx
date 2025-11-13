@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,26 +10,17 @@ import { Mail } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
-  const contactEndpoint = useMemo(
-    () => import.meta.env.VITE_CONTACT_ENDPOINT ?? "/.netlify/functions/send-contact",
-    [],
-  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     message: "",
-    honeypot: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [lastSubmittedAt, setLastSubmittedAt] = useState<number | null>(null);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
-    if (formData.honeypot) {
-      return;
-    }
 
     if (lastSubmittedAt && Date.now() - lastSubmittedAt < 10_000) {
       toast({
@@ -42,24 +34,28 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(contactEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-          honeypot: formData.honeypot,
-        }),
-      });
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-      if (!response.ok) {
-        const errorBody = await response.json().catch(() => null);
-        throw new Error(errorBody?.error ?? "Request failed");
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS environment variables missing");
       }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          from_name: formData.name,
+          email: formData.email,
+          from_email: formData.email,
+          company: formData.company || "N/A",
+          message: formData.message,
+          title: "Website contact",
+        },
+        publicKey,
+      );
 
       toast({
         title: "Message sent",
@@ -71,7 +67,6 @@ const Contact = () => {
         email: "",
         company: "",
         message: "",
-        honeypot: "",
       });
       setLastSubmittedAt(Date.now());
     } catch (error) {
@@ -220,17 +215,6 @@ const Contact = () => {
                       className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-gray-500"
                     />
                   </div>
-                  <input
-                    type="text"
-                    name="honeypot"
-                    value={formData.honeypot}
-                    onChange={handleChange}
-                    className="hidden"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
-
                   <Button
                     type="submit"
                     variant="brand"
