@@ -24,6 +24,8 @@ export const Layout = ({
   background = "lightRays",
   theme = "dark",
 }: LayoutProps) => {
+  const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+  const canonicalUrl = `https://aboh.ai${pathname}`;
   const fullTitle = `${title} | ABOH`;
   const isPlain = theme === "plain";
   
@@ -33,13 +35,13 @@ export const Layout = ({
         <title>{fullTitle}</title>
         <meta name="description" content={description} />
         {keywords && <meta name="keywords" content={keywords} />}
-        <link rel="canonical" href={`https://aboh.ai${window.location.pathname}`} />
+        <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph */}
         <meta property="og:title" content={fullTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://aboh.ai${window.location.pathname}`} />
+        <meta property="og:url" content={canonicalUrl} />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />

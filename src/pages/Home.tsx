@@ -76,7 +76,7 @@ const Home = () => {
       <section className="px-4 py-20 md:py-32 lg:py-40">
         <div className="container mx-auto max-w-5xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-400 animate-fade-in">
-            AI software, applications, and consultancy
+            AI software and applications
           </p>
           <h1 className="mb-6 text-white animate-slide-up">Building the next generation of intelligent software</h1>
           <p
