@@ -19,10 +19,9 @@
   display: flex;
   align-items: center;
   height: var(--nav-h);
-  background: var(--base, #020617);
+  background: transparent;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding-right: 8px;
+  padding-right: 0;
 }
 
 .pill-logo {
@@ -36,7 +35,7 @@
   justify-content: center;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin-right: 10px;
+  margin-right: 16px;
 }
 
 .pill-logo img {

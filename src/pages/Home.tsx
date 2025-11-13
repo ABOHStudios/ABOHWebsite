@@ -11,22 +11,6 @@ import {
   Sparkles,
   Newspaper,
 } from "lucide-react";
-import {
-  SiOpenai,
-  SiHuggingface,
-  SiTensorflow,
-  SiPytorch,
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
-  SiPython,
-  SiNodedotjs,
-  SiPostgresql,
-  SiFastapi,
-  SiAmazonwebservices,
-  SiGooglecloud,
-} from "react-icons/si";
 
 const differentiators = [
   {
@@ -48,38 +32,19 @@ const differentiators = [
   },
 ];
 
-const techLogos = [
-  { node: <SiOpenai />, title: "OpenAI", href: "https://openai.com" },
-  { node: <SiHuggingface />, title: "Hugging Face", href: "https://huggingface.co" },
-  { node: <SiTensorflow />, title: "TensorFlow", href: "https://tensorflow.org" },
-  { node: <SiPytorch />, title: "PyTorch", href: "https://pytorch.org" },
-  { node: <SiAmazonwebservices />, title: "AWS", href: "https://aws.amazon.com" },
-  { node: <SiGooglecloud />, title: "Google Cloud", href: "https://cloud.google.com" },
-  { node: <SiPython />, title: "Python", href: "https://www.python.org" },
-  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-  { node: <SiJavascript />, title: "JavaScript", href: "https://developer.mozilla.org/docs/Web/JavaScript" },
-  { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
-  { node: <SiFastapi />, title: "FastAPI", href: "https://fastapi.tiangolo.com" },
-  { node: <SiReact />, title: "React", href: "https://react.dev" },
-  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-  { node: <SiPostgresql />, title: "PostgreSQL", href: "https://postgresql.org" },
+const technologyHighlights = [
+  "State of the art language, vision, and multimodal models tuned for each workload",
+  "Secure data pipelines, vector search, and monitoring that keep deployments reliable",
+  "Elastic cloud infrastructure with automated scaling, observability, and governance",
+  "Modern product engineering workflows that let us prototype fast and ship safely",
 ];
 
 const insights = [
   {
-    title: "How we build responsible AI",
-    summary: "A playbook for aligning legal, product, and ML before code hits production.",
-    link: "/services",
-  },
-  {
-    title: "5 ways generative AI transforms workflows",
-    summary: "Lessons from copilots launched across ops, finance, and creative teams.",
-    link: "/portfolio",
-  },
-  {
-    title: "Designing copilots people trust",
-    summary: "Interface patterns that keep humans in the loop while delivering speed.",
-    link: "/contact",
+    title: "AI Agents Explained Simply",
+    summary: "What autonomous agents are, how they work, and why they’ll reshape every operating model.",
+    link: "/blog/ai-agents-explained",
+    week: "Week of 10 Nov 2025",
   },
 ];
 
@@ -122,7 +87,7 @@ const Home = () => {
             emerging tech into measurable outcomes.
           </p>
           <div
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row animate-slide-up"
+            className="flex flex-col items-center justify-center gap-4 animate-slide-up"
             style={{ animationDelay: "200ms" }}
           >
             <Link to="/services">
@@ -141,12 +106,12 @@ const Home = () => {
 
       {/* Services Section */}
       <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto">
+        <div className="container mx-auto rounded-[32px] border border-white/10 bg-gradient-to-r from-slate-950/80 via-slate-900/70 to-slate-950/80 px-6 py-12 shadow-[0_40px_120px_rgba(2,6,23,0.65)]">
           <div className="mb-16 max-w-3xl">
             <p className="mb-3 text-sm font-medium uppercase tracking-wider text-sky-400">What we do</p>
             <h2 className="text-white">Full-stack AI craftsmanship.</h2>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2">
             <ServiceCard
               icon={<Settings size={24} />}
               title="AI Software Development"
@@ -159,18 +124,13 @@ const Home = () => {
               description="Launch copilots and assistants grounded in your data and brand."
               delay={100}
             />
-            <ServiceCard
-              icon={<Lightbulb size={24} />}
-              title="AI Consultancy"
-              description="Align teams, roadmaps, and governance so AI ships responsibly."
-              delay={200}
-            />
           </div>
         </div>
       </section>
       {/* Why Choose Us */}
-      <section className="px-4 py-16 md:py-24 bg-white/5 backdrop-blur-sm">
-        <div className="container mx-auto max-w-6xl">
+      <section className="relative px-4 py-16 md:py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/5 to-white/5 pointer-events-none" />
+        <div className="container mx-auto max-w-6xl relative">
           <div className="mb-10 text-center">
             <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Why choose us</p>
             <h2 className="text-white">Values that anchor every partnership.</h2>
@@ -189,55 +149,63 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Technologies */}
+      {/* Technology Commitment */}
       <section className="px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-5xl text-center">
-          <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Technologies we trust</p>
-          <h2 className="text-white">Modern stacks for resilient AI products.</h2>
-          <p className="mt-4 text-base text-gray-300">
-            We pair proven infrastructure with the latest LLM tooling so your roadmap scales with confidence.
+        <div className="container mx-auto max-w-5xl rounded-3xl border border-white/10 bg-gradient-to-r from-slate-900/60 via-slate-900/30 to-transparent p-8 md:p-12">
+          <div className="mb-6">
+            <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Technologies we trust</p>
+            <h2 className="text-white">Built on the latest AI and engineering stacks.</h2>
+          </div>
+          <p className="text-base text-gray-300 mb-8">
+            Every engagement pairs cutting edge AI research with proven software craft. We select model providers,
+            infrastructure, and tooling based on the problem, not vendor hype, so your roadmap stays flexible as the
+            ecosystem evolves.
           </p>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-white/80 text-3xl">
-            {techLogos.map((logo) => (
-              <a
-                key={logo.title}
-                href={logo.href}
-                target="_blank"
-                rel="noreferrer"
-                className="transition-transform hover:-translate-y-1"
-                aria-label={logo.title}
+          <div className="grid gap-4 md:grid-cols-2">
+            {technologyHighlights.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-gray-200 flex items-start gap-3"
               >
-                {logo.node}
-              </a>
+                <span className="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                <span>{item}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Latest Insights */}
-      <section className="px-4 py-20 md:py-28 bg-white/5 backdrop-blur-sm">
+      <section className="px-4 py-20 md:py-28 border-t border-b border-white/10 bg-slate-950/60">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Latest insights</p>
-              <h2 className="text-white">Ideas from the lab and the field.</h2>
+              <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Weekly blog post</p>
+              <h2 className="text-white">Blogs every week · Week of 10 Nov</h2>
+          
             </div>
-            <Link to="/portfolio" className="text-sm font-semibold text-sky-400 hover:text-sky-300 transition-smooth">
-              See all insights →
-            </Link>
+            
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-1">
             {insights.map((post) => (
               <article
                 key={post.title}
-                className="flex flex-col rounded-2xl border border-white/10 bg-black/40 p-6 shadow-soft hover:-translate-y-1 transition-smooth"
+                className="flex flex-col md:flex-row md:items-center gap-6 rounded-3xl border border-white/10 bg-black/40 p-8 md:p-10 shadow-soft hover:-translate-y-1 transition-smooth"
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 shrink-0">
                   <Newspaper className="text-sky-400" size={20} />
                 </div>
-                <h3 className="text-white">{post.title}</h3>
-                <p className="mt-3 text-sm text-gray-300 leading-relaxed flex-grow">{post.summary}</p>
-                <Link to={post.link} className="mt-6 inline-flex text-sky-400 text-sm font-semibold hover:text-sky-300">
+                <div className="flex-1">
+                  <h3 className="text-white text-2xl">{post.title}</h3>
+                  {post.week && (
+                    <p className="text-xs uppercase tracking-[0.3em] text-sky-400 mt-2">{post.week}</p>
+                  )}
+                  <p className="mt-3 text-base text-gray-300 leading-relaxed">{post.summary}</p>
+                </div>
+                <Link
+                  to={post.link}
+                  className="text-sky-400 text-sm font-semibold hover:text-sky-300 whitespace-nowrap self-start md:self-center"
+                >
                   Continue reading →
                 </Link>
               </article>

@@ -7,7 +7,6 @@ export const Navigation = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Our Portfolio", href: "/portfolio" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -19,7 +18,6 @@ export const Navigation = () => {
           logoAlt="ABOH"
           items={navItems}
           activeHref={location.pathname}
-          className="shadow-[0_8px_30px_rgba(2,6,23,0.45)]"
           ease="power2.easeOut"
           baseColor="rgba(2,6,23,0.95)"
           pillColor="rgba(15,23,42,0.85)"

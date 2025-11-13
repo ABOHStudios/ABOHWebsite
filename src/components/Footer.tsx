@@ -61,12 +61,6 @@ export const Footer = () => {
                 Home
               </Link>
               <Link
-                to="/portfolio"
-                className="block text-sm text-gray-300 hover:text-sky-400 transition-smooth"
-              >
-                Portfolio
-              </Link>
-              <Link
                 to="/services"
                 className="block text-sm text-gray-300 hover:text-sky-400 transition-smooth"
               >

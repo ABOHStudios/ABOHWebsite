@@ -12,6 +12,7 @@ interface LayoutProps {
   keywords?: string;
   structuredData?: object;
   background?: "beams" | "lightRays" | "none";
+  theme?: "dark" | "plain";
 }
 
 export const Layout = ({
@@ -21,8 +22,10 @@ export const Layout = ({
   keywords,
   structuredData,
   background = "lightRays",
+  theme = "dark",
 }: LayoutProps) => {
   const fullTitle = `${title} | ABOH`;
+  const isPlain = theme === "plain";
   
   return (
     <>
@@ -51,42 +54,48 @@ export const Layout = ({
         )}
       </Helmet>
       
-      <div className="relative min-h-screen bg-slate-950 text-white">
+      <div className={`relative min-h-screen ${isPlain ? "bg-white text-slate-900" : "bg-slate-950 text-white"}`}>
         {/* Fixed Background */}
-        <div className="fixed inset-0 z-0 bg-slate-950">
-          {background === "beams" && (
-            <Beams
-              beamWidth={2}
-              beamHeight={15}
-              beamNumber={12}
-              lightColor="#0EA5E9"
-              speed={2}
-              noiseIntensity={1.75}
-              scale={0.2}
-              rotation={0}
-            />
-          )}
-          {background === "lightRays" && (
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#00ffff"
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={1.2}
-              followMouse
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-              className="opacity-90"
-            />
-          )}
-        </div>
+        {!isPlain && (
+          <div className="fixed inset-0 z-0 bg-slate-950">
+            {background === "beams" && (
+              <Beams
+                beamWidth={2}
+                beamHeight={15}
+                beamNumber={12}
+                lightColor="#0EA5E9"
+                speed={2}
+                noiseIntensity={1.75}
+                scale={0.2}
+                rotation={0}
+              />
+            )}
+            {background === "lightRays" && (
+              <LightRays
+                raysOrigin="top-center"
+                raysColor="#00ffff"
+                raysSpeed={1.5}
+                lightSpread={0.8}
+                rayLength={1.2}
+                followMouse
+                mouseInfluence={0.1}
+                noiseAmount={0.1}
+                distortion={0.05}
+                className="opacity-90"
+              />
+            )}
+          </div>
+        )}
         
         {/* Content Layer */}
         <div className="relative z-10">
-          <Navigation />
+          <div className={isPlain ? "bg-slate-950 text-white" : undefined}>
+            <Navigation />
+          </div>
           <main>{children}</main>
-          <Footer />
+          <div className={isPlain ? "bg-slate-950 text-white" : undefined}>
+            <Footer />
+          </div>
         </div>
       </div>
     </>

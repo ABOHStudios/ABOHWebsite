@@ -55,7 +55,7 @@ const Contact = () => {
 
       toast({
         title: "Message sent",
-        description: "Thank you for reaching out — we'll respond within two business days.",
+        description: "Thank you for reaching out — we will be in touch.",
       });
 
       setFormData({
@@ -135,9 +135,7 @@ const Contact = () => {
                 >
                   hello@aboh.studio
                 </a>
-                <p className="mt-2 text-sm text-gray-400">
-                  We aim to respond within two business days. Urgent requests should include timelines in the subject.
-                </p>
+               
               </div>
             </div>
 

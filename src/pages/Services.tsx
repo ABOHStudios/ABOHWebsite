@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
-import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 const Services = () => {
   const services = [
@@ -24,16 +23,6 @@ const Services = () => {
         "Multi-modal experiences across web, mobile, and voice"
       ],
       link: "Prototype a copilot"
-    },
-    {
-      title: "AI Consultancy",
-      description: "We partner with leadership teams to define strategy, assess readiness, and implement governance for sustainable AI transformation.",
-      features: [
-        "Executive workshops and strategic roadmaps",
-        "Responsible AI frameworks and assessments",
-        "Organisational change and workforce enablement"
-      ],
-      link: "Book a consultation"
     }
   ];
 
@@ -84,31 +73,30 @@ const Services = () => {
 
       {/* Services List */}
       <section className="px-4 py-10 md:py-12">
-        <div className="container mx-auto max-w-5xl">
-          <ScrollStack className="scroll-stack-services" useWindowScroll itemDistance={40} itemStackDistance={10}>
-            {services.map((service) => (
-              <ScrollStackItem key={service.title}>
-                <article className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10">
-                  <h2 className="text-white">{service.title}</h2>
-                  <p className="mb-6 text-lg text-gray-300 leading-relaxed">{service.description}</p>
-                  <ul className="mb-6 space-y-3">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-start text-gray-300">
-                        <span className="mr-3 mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-sky-400"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center text-sky-400 font-medium transition-smooth hover:translate-x-1 hover:text-sky-300"
-                  >
-                    {service.link} <ArrowRight className="ml-2" size={16} />
-                  </Link>
-                </article>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+        <div className="container mx-auto max-w-5xl space-y-6 md:space-y-8">
+          {services.map((service) => (
+            <article
+              key={service.title}
+              className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10"
+            >
+              <h2 className="text-white">{service.title}</h2>
+              <p className="mb-6 text-lg text-gray-300 leading-relaxed">{service.description}</p>
+              <ul className="mb-6 space-y-3">
+                {service.features.map((feature) => (
+                  <li key={feature} className="flex items-start text-gray-300">
+                    <span className="mr-3 mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-sky-400"></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/contact"
+                className="inline-flex items-center text-sky-400 font-medium transition-smooth hover:translate-x-1 hover:text-sky-300"
+              >
+                {service.link} <ArrowRight className="ml-2" size={16} />
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
     </Layout>
