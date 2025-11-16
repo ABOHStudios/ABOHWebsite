@@ -22,6 +22,7 @@ const AIAgentsExplained = () => {
       description="Learn what AI agents are, how they work, and why they will transform the future of work across industries."
       keywords="AI agents, agentic workflows, automation, AI strategy, digital transformation"
       structuredData={structuredData}
+      background="none"
     >
       <article className="px-4 py-20 md:py-24">
         <div className="container mx-auto max-w-3xl space-y-8">

@@ -5,7 +5,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-black/20 backdrop-blur-md">
+    <footer className="border-t border-white/10 bg-black text-white">
       <div className="container mx-auto px-4 py-8 md:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           <div>
@@ -13,7 +13,7 @@ export const Footer = () => {
             <div className="space-y-2 text-sm text-gray-300">
               <p>
                 Email us at{" "}
-                <a href="mailto:hello@aboh.ai" className="hover:text-sky-400 transition-smooth">
+                <a href="mailto:hello@aboh.ai" className="hover:text-white transition-smooth">
                   hello@aboh.ai
                 </a>
               </p>
@@ -24,7 +24,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="ABOH on Twitter"
-                className="hover:text-sky-400 transition-smooth"
+                className="hover:text-white transition-smooth"
               >
                 <Twitter size={18} />
               </a>
@@ -56,7 +56,7 @@ export const Footer = () => {
             <nav className="space-y-2">
               <Link
                 to="/"
-                className="block text-sm text-gray-300 hover:text-sky-400 transition-smooth"
+                className="block text-sm text-gray-300 hover:text-white transition-smooth"
               >
                 Home
               </Link>
@@ -79,10 +79,10 @@ export const Footer = () => {
         <div className="mt-8 border-t border-white/10 pt-6 space-y-3 text-center text-sm text-gray-400">
           <p>&copy; {currentYear} ABOH. All rights reserved.</p>
           <div className="flex flex-col items-center gap-2 text-gray-400 sm:flex-row sm:justify-center sm:gap-6">
-            <Link to="/privacy" className="hover:text-sky-400 transition-smooth">
+            <Link to="/privacy" className="hover:text-white transition-smooth">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-sky-400 transition-smooth">
+            <Link to="/terms" className="hover:text-white transition-smooth">
               Terms of Service
             </Link>
           </div>

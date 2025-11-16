@@ -55,6 +55,7 @@ const Services = () => {
       description="End to end AI solutions built for real world impact. From strategy and design to deployment and adoption, we integrate technology and change management to deliver measurable results quickly."
       keywords="AI software development, ChatGPT application development, AI consultancy, machine learning services, AI strategy"
       structuredData={structuredData}
+      background="none"
     >
       {/* Hero Section */}
       <section className="px-4 py-12 md:py-16">
@@ -77,7 +78,7 @@ const Services = () => {
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10"
+              className="rounded-lg border border-white/10 bg-white/5 p-8 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10"
             >
               <h2 className="text-white">{service.title}</h2>
               <p className="mb-6 text-lg text-gray-300 leading-relaxed">{service.description}</p>

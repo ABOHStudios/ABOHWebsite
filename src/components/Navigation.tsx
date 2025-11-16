@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
-import logo from "@/assets/LOGOABOH.png";
+import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/Logoaboh.jpg";
 import PillNav from "@/components/PillNav";
 
 export const Navigation = () => {
@@ -11,8 +11,11 @@ export const Navigation = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full">
-      <div className="container mx-auto flex items-center justify-center px-4 py-4 md:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full bg-black/90">
+      <div className="container mx-auto flex items-center justify-between px-4 py-4 md:px-6 lg:px-8">
+        <Link to="/" className="inline-flex items-center gap-3" aria-label="ABOH home">
+          <img src={logo} alt="ABOH" className="h-16 w-16 object-contain" />
+        </Link>
         <PillNav
           logo={logo}
           logoAlt="ABOH"
@@ -20,9 +23,10 @@ export const Navigation = () => {
           activeHref={location.pathname}
           ease="power2.easeOut"
           baseColor="rgba(2,6,23,0.95)"
-          pillColor="rgba(15,23,42,0.85)"
-          hoveredPillTextColor="#38bdf8"
-          pillTextColor="#f8fafc"
+          pillColor="#ffffff"
+          hoveredPillTextColor="#0f172a"
+          pillTextColor="#0f172a"
+          showLogo={false}
         />
       </div>
     </header>

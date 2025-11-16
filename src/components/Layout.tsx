@@ -36,30 +36,27 @@ export const Layout = ({
         <meta name="description" content={description} />
         {keywords && <meta name="keywords" content={keywords} />}
         <link rel="canonical" href={canonicalUrl} />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content={fullTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={fullTitle} />
         <meta name="twitter:description" content={description} />
-        
+
         {/* Structured Data */}
         {structuredData && (
-          <script type="application/ld+json">
-            {JSON.stringify(structuredData)}
-          </script>
+          <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
         )}
       </Helmet>
-      
-      <div className={`relative min-h-screen ${isPlain ? "bg-white text-slate-900" : "bg-slate-950 text-white"}`}>
-        {/* Fixed Background */}
+
+      <div className={`relative min-h-screen ${isPlain ? "bg-white text-slate-900" : "bg-black text-white"}`}>
         {!isPlain && (
-          <div className="fixed inset-0 z-0 bg-slate-950">
+          <div className="fixed inset-0 z-0 bg-black">
             {background === "beams" && (
               <Beams
                 beamWidth={2}
@@ -88,16 +85,11 @@ export const Layout = ({
             )}
           </div>
         )}
-        
-        {/* Content Layer */}
-        <div className="relative z-10">
-          <div className={isPlain ? "bg-slate-950 text-white" : undefined}>
-            <Navigation />
-          </div>
-          <main>{children}</main>
-          <div className={isPlain ? "bg-slate-950 text-white" : undefined}>
-            <Footer />
-          </div>
+
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </div>
       </div>
     </>

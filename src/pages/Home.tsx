@@ -14,18 +14,18 @@ import {
 
 const differentiators = [
   {
-    icon: <Users className="text-sky-400" size={20} />,
+    icon: <Users className="text-white" size={20} />,
     title: "Human + machine synergy",
     description:
       "We co-create with clients so human intuition guides the mission while intelligent systems accelerate it.",
   },
   {
-    icon: <Shield className="text-sky-400" size={20} />,
+    icon: <Shield className="text-white" size={20} />,
     title: "Built for real impact",
     description: "Every launch targets tangible outcomes, faster workflows, smarter decisions and measurable change.",
   },
   {
-    icon: <Sparkles className="text-sky-400" size={20} />,
+    icon: <Sparkles className="text-white" size={20} />,
     title: "Always experimenting",
     description:
       "Curiosity drives our studio. We prototype, test, and learn relentlessly to push what’s possible with AI.",
@@ -70,19 +70,16 @@ const Home = () => {
       description="ABOH delivers AI-powered software, ChatGPT applications, and strategic consultancy with elegance and innovation. Transform your business with human-centered AI."
       keywords="AI software, ChatGPT applications, AI consultancy, machine learning, artificial intelligence, AI innovation"
       structuredData={structuredData}
-      background="beams"
+      background="none"
     >
       {/* Hero Section */}
       <section className="px-4 py-20 md:py-32 lg:py-40">
         <div className="container mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-400 animate-fade-in">
+          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-accent animate-fade-in">
             AI software and applications
           </p>
           <h1 className="mb-6 text-white animate-slide-up">Building the next generation of intelligent software</h1>
-          <p
-            className="mx-auto mb-10 max-w-2xl text-xl text-gray-300 animate-slide-up"
-            style={{ animationDelay: "100ms" }}
-          >
+          <p className="mx-auto mb-10 max-w-2xl text-xl text-white animate-slide-up" style={{ animationDelay: "100ms" }}>
             ABOH ships production AI software, conversational applications, and strategy engagements that translate
             emerging tech into measurable outcomes.
           </p>
@@ -91,7 +88,7 @@ const Home = () => {
             style={{ animationDelay: "200ms" }}
           >
             <Link to="/services">
-              <Button variant="brand" size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
+              <Button variant="brand" size="lg" className="bg-accent text-black hover:bg-accent-strong">
                 Explore services
               </Button>
             </Link>
@@ -108,7 +105,7 @@ const Home = () => {
       <section className="px-4 py-20 md:py-28">
         <div className="container mx-auto rounded-[32px] border border-white/10 bg-gradient-to-r from-slate-950/80 via-slate-900/70 to-slate-950/80 px-6 py-12 shadow-[0_40px_120px_rgba(2,6,23,0.65)]">
           <div className="mb-16 max-w-3xl">
-            <p className="mb-3 text-sm font-medium uppercase tracking-wider text-sky-400">What we do</p>
+            <p className="mb-3 text-sm font-medium uppercase tracking-wider text-accent">What we do</p>
             <h2 className="text-white">Full-stack AI craftsmanship.</h2>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
@@ -132,17 +129,17 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/5 to-white/5 pointer-events-none" />
         <div className="container mx-auto max-w-6xl relative">
           <div className="mb-10 text-center">
-            <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Why choose us</p>
+            <p className="mb-2 text-sm font-medium uppercase tracking-wider text-accent">Why choose us</p>
             <h2 className="text-white">Values that anchor every partnership.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {differentiators.map((item) => (
               <article key={item.title} className="rounded-2xl border border-white/10 bg-black/40 p-6 shadow-soft">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white">
                   {item.icon}
                 </div>
                 <h3 className="text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-gray-300 leading-relaxed">{item.description}</p>
+                <p className="mt-3 text-sm text-white leading-relaxed">{item.description}</p>
               </article>
             ))}
           </div>
@@ -153,10 +150,10 @@ const Home = () => {
       <section className="px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-5xl rounded-3xl border border-white/10 bg-gradient-to-r from-slate-900/60 via-slate-900/30 to-transparent p-8 md:p-12">
           <div className="mb-6">
-            <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Technologies we trust</p>
+            <p className="mb-2 text-sm font-medium uppercase tracking-wider text-accent">Technologies we trust</p>
             <h2 className="text-white">Built on the latest AI and engineering stacks.</h2>
           </div>
-          <p className="text-base text-gray-300 mb-8">
+          <p className="text-base text-white mb-8">
             Every engagement pairs cutting edge AI research with proven software craft. We select model providers,
             infrastructure, and tooling based on the problem, not vendor hype, so your roadmap stays flexible as the
             ecosystem evolves.
@@ -165,9 +162,9 @@ const Home = () => {
             {technologyHighlights.map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-gray-200 flex items-start gap-3"
+                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-white flex items-start gap-3"
               >
-                <span className="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                <span className="mt-1 h-2 w-2 rounded-full bg-accent"></span>
                 <span>{item}</span>
               </div>
             ))}
@@ -180,7 +177,7 @@ const Home = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-medium uppercase tracking-wider text-sky-400">Weekly blog post</p>
+              <p className="mb-2 text-sm font-medium uppercase tracking-wider text-accent">Weekly blog post</p>
               <h2 className="text-white">Blogs every week · Week of 10 Nov</h2>
           
             </div>
@@ -193,18 +190,18 @@ const Home = () => {
                 className="flex flex-col md:flex-row md:items-center gap-6 rounded-3xl border border-white/10 bg-black/40 p-8 md:p-10 shadow-soft hover:-translate-y-1 transition-smooth"
               >
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 shrink-0">
-                  <Newspaper className="text-sky-400" size={20} />
+                  <Newspaper className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-white text-2xl">{post.title}</h3>
                   {post.week && (
-                    <p className="text-xs uppercase tracking-[0.3em] text-sky-400 mt-2">{post.week}</p>
+                    <p className="text-xs uppercase tracking-[0.3em] text-white/60 mt-2">{post.week}</p>
                   )}
-                  <p className="mt-3 text-base text-gray-300 leading-relaxed">{post.summary}</p>
+                  <p className="mt-3 text-base text-white leading-relaxed">{post.summary}</p>
                 </div>
                 <Link
                   to={post.link}
-                  className="text-sky-400 text-sm font-semibold hover:text-sky-300 whitespace-nowrap self-start md:self-center"
+                  className="text-white text-sm font-semibold hover:text-white/70 whitespace-nowrap self-start md:self-center"
                 >
                   Continue reading →
                 </Link>

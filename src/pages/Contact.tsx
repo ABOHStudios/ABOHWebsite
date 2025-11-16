@@ -102,6 +102,7 @@ const Contact = () => {
       description="Let's design your next AI milestone. Email or drop us a note — we reply within two business days."
       keywords="contact ABOH, AI consultation, get in touch, AI services inquiry, schedule demo"
       structuredData={structuredData}
+      background="none"
     >
       {/* Hero Section */}
       <section className="px-4 py-20 md:py-28">
@@ -129,7 +130,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10">
+              <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10">
                 <div className="mb-2 flex items-center gap-2 text-sky-400">
                   <Mail size={18} />
                   <p className="text-sm font-medium uppercase tracking-wider">Email</p>
@@ -148,7 +149,7 @@ const Contact = () => {
             <div className="lg:col-span-3">
               <form
                 onSubmit={handleSubmit}
-                className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-soft"
+                className="rounded-lg border border-white/10 bg-white/5 p-8 shadow-soft"
               >
                 <h2 className="mb-8 text-white">Send a message</h2>
 
