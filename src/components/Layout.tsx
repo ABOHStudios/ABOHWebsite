@@ -26,7 +26,7 @@ export const Layout = ({
 }: LayoutProps) => {
   const pathname = typeof window !== "undefined" ? window.location.pathname : "";
   const canonicalUrl = `https://aboh.ai${pathname}`;
-  const fullTitle = `${title} | ABOH`;
+  const fullTitle = "ABOH";
   const isPlain = theme === "plain";
   
   return (

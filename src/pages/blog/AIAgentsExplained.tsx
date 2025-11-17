@@ -32,7 +32,7 @@ const AIAgentsExplained = () => {
               AI Agents Explained Simply: What They Are and How They Will Disrupt the Future
             </h1>
             <p className="text-gray-300 text-lg">
-              AI agents are moving from lab experiments to production copilots. Here is what executives, founders, and
+              AI agents are moving from lab experiments to production co-pilots. Here is what executives, founders, and
               product teams need to know.
             </p>
           </header>

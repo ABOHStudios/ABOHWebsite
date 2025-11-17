@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 217 33% 18%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 18%;
+    --accent: 219 80% 40%;
     --accent-foreground: 0 0% 98%;
 
     --brand: 211 100% 50%;
@@ -62,8 +62,8 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --accent-amber: 0 0% 60%;
-    --accent-amber-strong: 0 0% 45%;
+    --accent-amber: 219 88% 56%;
+    --accent-amber-strong: 219 88% 46%;
   }
 
   .dark {
@@ -85,7 +85,7 @@ All colors MUST be HSL.
     --muted: 217 33% 18%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 18%;
+    --accent: 219 80% 40%;
     --accent-foreground: 0 0% 98%;
 
     --brand: 211 100% 50%;
@@ -110,8 +110,8 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --accent-amber: 0 0% 60%;
-    --accent-amber-strong: 0 0% 45%;
+    --accent-amber: 219 88% 56%;
+    --accent-amber-strong: 219 88% 46%;
   }
 }
 

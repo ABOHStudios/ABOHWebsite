@@ -120,7 +120,7 @@ const Contact = () => {
       {/* Contact Section */}
       <section className="px-4 py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-5">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
             {/* Contact Details */}
             <div className="lg:col-span-2 space-y-8">
               <div>
@@ -149,7 +149,7 @@ const Contact = () => {
             <div className="lg:col-span-3">
               <form
                 onSubmit={handleSubmit}
-                className="rounded-lg border border-white/10 bg-white/5 p-8 shadow-soft"
+                className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft sm:p-8"
               >
                 <h2 className="mb-8 text-white">Send a message</h2>
 

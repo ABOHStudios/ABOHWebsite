@@ -16,13 +16,13 @@ const Services = () => {
     },
     {
       title: "ChatGPT Application Development",
-      description: "We create tailored conversational agents, copilots, and integrations that extend your data and workflows safely and effectively.",
+      description: "We create tailored conversational agents, co-pilots, and integrations that extend your data and workflows safely and effectively.",
       features: [
         "Knowledge retrieval and contextual grounding",
         "Persona, tone, and brand alignment",
         "Multi-modal experiences across web, mobile, and voice"
       ],
-      link: "Prototype a copilot"
+      link: "Prototype a co-pilot"
     }
   ];
 
@@ -64,7 +64,7 @@ const Services = () => {
             What we deliver
           </p>
           <h1 className="mb-6 text-white animate-slide-up">
-            Scalable AI programs from concept to launch.
+            Scalable AI programmes from concept to launch.
           </h1>
           <p className="text-xl text-gray-300 animate-slide-up" style={{ animationDelay: "100ms" }}>
             We combine design, engineering, and organisational alignment to turn ideas into value, fast.
@@ -78,7 +78,7 @@ const Services = () => {
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-lg border border-white/10 bg-white/5 p-8 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10"
+              className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10 sm:p-8"
             >
               <h2 className="text-white">{service.title}</h2>
               <p className="mb-6 text-lg text-gray-300 leading-relaxed">{service.description}</p>

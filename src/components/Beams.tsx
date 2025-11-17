@@ -1,5 +1,5 @@
-/* eslint-disable react/no-unknown-property */
 import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo } from 'react';
+import type { ReactNode } from 'react';
 
 import * as THREE from 'three';
 
@@ -9,12 +9,37 @@ import { degToRad } from 'three/src/math/MathUtils.js';
 
 import './Beams.css';
 
-function extendMaterial(BaseMaterial: any, cfg: any) {
+type UniformValue = THREE.IUniform | number | number[] | string | boolean | THREE.Color | THREE.Texture;
+
+interface ExtendedMaterialConfig {
+  header: string;
+  vertexHeader?: string;
+  fragmentHeader?: string;
+  vertex?: Record<string, string>;
+  fragment?: Record<string, string>;
+  material?: THREE.MeshStandardMaterialParameters;
+  uniforms?: Record<string, UniformValue>;
+}
+
+type BeamUniforms = Record<string, THREE.IUniform> & {
+  time: { value: number };
+};
+
+type BeamMaterial = THREE.ShaderMaterial & { uniforms: BeamUniforms };
+
+type MeshStandardMaterialConstructor = new (
+  parameters?: THREE.MeshStandardMaterialParameters
+) => THREE.MeshStandardMaterial;
+
+const isThreeUniform = (value: UniformValue): value is THREE.IUniform =>
+  typeof value === 'object' && value !== null && 'value' in value;
+
+function extendMaterial(BaseMaterial: MeshStandardMaterialConstructor, cfg: ExtendedMaterialConfig): BeamMaterial {
   const physical = THREE.ShaderLib.physical;
   const { vertexShader: baseVert, fragmentShader: baseFrag, uniforms: baseUniforms } = physical;
-  const baseDefines = (physical as any).defines ?? {};
+  const baseDefines = physical.defines ?? {};
 
-  const uniforms = THREE.UniformsUtils.clone(baseUniforms);
+  const uniforms = THREE.UniformsUtils.clone(baseUniforms) as BeamUniforms;
 
   const defaults = new BaseMaterial(cfg.material || {});
 
@@ -24,8 +49,8 @@ function extendMaterial(BaseMaterial: any, cfg: any) {
   if ('envMap' in defaults) uniforms.envMap.value = defaults.envMap;
   if ('envMapIntensity' in defaults) uniforms.envMapIntensity.value = defaults.envMapIntensity;
 
-  Object.entries(cfg.uniforms ?? {}).forEach(([key, u]: [string, any]) => {
-    uniforms[key] = u !== null && typeof u === 'object' && 'value' in u ? u : { value: u };
+  Object.entries(cfg.uniforms ?? {}).forEach(([key, uniformValue]) => {
+    uniforms[key] = isThreeUniform(uniformValue) ? uniformValue : { value: uniformValue };
   });
 
   let vert = `${cfg.header}\n${cfg.vertexHeader ?? ''}\n${baseVert}`;
@@ -45,12 +70,12 @@ function extendMaterial(BaseMaterial: any, cfg: any) {
     fragmentShader: frag,
     lights: true,
     fog: !!cfg.material?.fog
-  });
+  }) as BeamMaterial;
 
   return mat;
 }
 
-const CanvasWrapper = ({ children }: { children: React.ReactNode }) => (
+const CanvasWrapper = ({ children }: { children: ReactNode }) => (
   <Canvas dpr={[1, 2]} frameloop="always" className="beams-container">
     {children}
   </Canvas>
@@ -162,7 +187,7 @@ const Beams = ({
   scale = 0.2,
   rotation = 0
 }: BeamsProps) => {
-  const meshRef = useRef(null);
+  const meshRef = useRef<THREE.Mesh<THREE.BufferGeometry, BeamMaterial> | null>(null);
   const beamMaterial = useMemo(
     () =>
       extendMaterial(THREE.MeshStandardMaterial, {
@@ -281,25 +306,36 @@ function createStackedPlanesBufferGeometry(n: number, width: number, height: num
   return geometry;
 }
 
-const MergedPlanes = forwardRef(({ material, width, count, height }: any, ref) => {
-  const mesh = useRef<THREE.Mesh>(null);
-  useImperativeHandle(ref, () => mesh.current);
-  const geometry = useMemo(
-    () => createStackedPlanesBufferGeometry(count, width, height, 0, 100),
-    [count, width, height]
-  );
-  useFrame((_, delta) => {
-    if (mesh.current) {
-      (mesh.current.material as any).uniforms.time.value += 0.1 * delta;
-    }
-  });
-  return <mesh ref={mesh} geometry={geometry} material={material} />;
-});
+interface MergedPlanesProps {
+  material: BeamMaterial;
+  width: number;
+  height: number;
+  count: number;
+}
+
+const MergedPlanes = forwardRef<THREE.Mesh<THREE.BufferGeometry, BeamMaterial>, MergedPlanesProps>(
+  ({ material, width, count, height }, ref) => {
+    const mesh = useRef<THREE.Mesh<THREE.BufferGeometry, BeamMaterial>>(null);
+    useImperativeHandle(ref, () => mesh.current);
+    const geometry = useMemo(
+      () => createStackedPlanesBufferGeometry(count, width, height, 0, 100),
+      [count, width, height]
+    );
+    useFrame((_, delta) => {
+      if (mesh.current) {
+        mesh.current.material.uniforms.time.value += 0.1 * delta;
+      }
+    });
+    return <mesh ref={mesh} geometry={geometry} material={material} />;
+  }
+);
 MergedPlanes.displayName = 'MergedPlanes';
 
-const PlaneNoise = forwardRef((props: any, ref) => (
-  <MergedPlanes ref={ref} material={props.material} width={props.width} count={props.count} height={props.height} />
-));
+const PlaneNoise = forwardRef<THREE.Mesh<THREE.BufferGeometry, BeamMaterial>, MergedPlanesProps>(
+  ({ material, width, count, height }, ref) => (
+    <MergedPlanes ref={ref} material={material} width={width} count={count} height={height} />
+  )
+);
 PlaneNoise.displayName = 'PlaneNoise';
 
 const DirLight = ({ position, color }: { position: [number, number, number]; color: string }) => {
@@ -314,7 +350,6 @@ const DirLight = ({ position, color }: { position: [number, number, number]; col
     cam.right = 24;
     cam.far = 64;
     dir.current.shadow.bias = -0.004;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return <directionalLight ref={dir} color={color} intensity={1} position={position} />;
 };
