@@ -10,7 +10,8 @@ export const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
+    { label: "Services", href: "/#what-we-do" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -73,18 +74,21 @@ export const Navigation = () => {
             </button>
           </div>
           <nav className="mt-12 flex flex-col gap-8 text-2xl font-semibold text-white">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                onClick={() => setMobileOpen(false)}
-                className={`inline-flex items-center justify-between border-b border-white/10 pb-3 ${
-                  location.pathname === item.href ? "text-accent" : ""
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.href.split("#")[0];
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`inline-flex items-center justify-between border-b border-white/10 pb-3 ${
+                    isActive ? "text-accent" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       )}

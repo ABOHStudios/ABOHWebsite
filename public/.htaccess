@@ -1,0 +1,11 @@
+Options -MultiViews
+RewriteEngine On
+
+# Canonical redirect to https://www.aboh.studio
+RewriteCond %{HTTP_HOST} !^www\.aboh\.studio$ [NC]
+RewriteRule ^(.*)$ https://www.aboh.studio/$1 [L,R=301]
+
+# SPA fallback
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

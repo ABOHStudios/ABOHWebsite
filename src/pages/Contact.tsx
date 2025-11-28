@@ -59,7 +59,7 @@ const Contact = () => {
 
       toast({
         title: "Message sent",
-        description: "Thank you for reaching out — we will be in touch.",
+        description: "Thank you for reaching out - we will be in touch.",
       });
 
       setFormData({
@@ -92,27 +92,27 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact ABOH",
-    description: "Get in touch with ABOH for AI software development, ChatGPT applications, and AI consultancy services.",
+    description: "Get in touch with ABOH Studio in the Isle of Man for AI software development, ChatGPT applications, and AI consultancy services.",
     email: "hello@aboh.studio",
   };
 
   return (
     <Layout
-      title="Contact Us"
-      description="Let's design your next AI milestone. Email or drop us a note — we reply within two business days."
-      keywords="contact ABOH, AI consultation, get in touch, AI services inquiry, schedule demo"
+      title="Contact ABOH Studio | Isle of Man AI"
+      description="Contact ABOH Studio in the Isle of Man to plan your next AI milestone. Email or drop us a note - we reply within two business days."
+      keywords="contact ABOH Studio, contact ABOH Studio Isle of Man, AI consultation, AI services inquiry, Isle of Man AI contact"
       structuredData={structuredData}
       background="none"
     >
       {/* Hero Section */}
       <section className="px-4 py-20 md:py-28">
         <div className="container mx-auto max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-400 animate-fade-in">
+          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-accent animate-fade-in">
             Contact
           </p>
-          <h1 className="mb-6 text-white animate-slide-up">Let's design your next AI milestone.</h1>
-          <p className="text-xl text-gray-300 animate-slide-up" style={{ animationDelay: "100ms" }}>
-            Email us directly or send a message below — we monitor the inbox constantly.
+          <h1 className="mb-6 text-white animate-slide-up">Contact ABOH Studio's Isle of Man AI team.</h1>
+          <p className="text-xl text-white/80 animate-slide-up" style={{ animationDelay: "100ms" }}>
+            Email us directly or send a message below - we monitor the inbox constantly from the Isle of Man and respond quickly.
           </p>
         </div>
       </section>
@@ -125,19 +125,19 @@ const Contact = () => {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="mb-8 text-white">Talk with us</h2>
-                <p className="text-gray-300 mb-8">
+                <p className="text-white/80 mb-8">
                   Include the opportunity, timeline, and budget so we can respond with clear next steps.
                 </p>
               </div>
 
               <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft transition-smooth hover:shadow-medium hover:bg-white/10">
-                <div className="mb-2 flex items-center gap-2 text-sky-400">
+                <div className="mb-2 flex items-center gap-2 text-accent">
                   <Mail size={18} />
                   <p className="text-sm font-medium uppercase tracking-wider">Email</p>
                 </div>
                 <a
                   href="mailto:hello@aboh.studio"
-                  className="text-lg font-medium text-white hover:text-sky-400 transition-smooth"
+                  className="text-lg font-medium text-white hover:text-accent transition-smooth"
                 >
                   hello@aboh.studio
                 </a>
@@ -155,7 +155,7 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   <div>
-                    <Label htmlFor="name" className="text-gray-300">
+                    <Label htmlFor="name" className="text-white/80">
                       Name
                     </Label>
                     <Input
@@ -166,12 +166,12 @@ const Contact = () => {
                       placeholder="Jordan Lee"
                       value={formData.name}
                       onChange={handleChange}
-                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-gray-500"
+                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="text-gray-300">
+                    <Label htmlFor="email" className="text-white/80">
                       Email
                     </Label>
                     <Input
@@ -182,12 +182,12 @@ const Contact = () => {
                       placeholder="you@company.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-gray-500"
+                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="company" className="text-gray-300">
+                    <Label htmlFor="company" className="text-white/80">
                       Subject of interest
                     </Label>
                     <Input
@@ -197,12 +197,12 @@ const Contact = () => {
                       placeholder="AI platform build, automation, etc."
                       value={formData.company}
                       onChange={handleChange}
-                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-gray-500"
+                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="message" className="text-gray-300">
+                    <Label htmlFor="message" className="text-white/80">
                       Message
                     </Label>
                     <Textarea
@@ -213,22 +213,22 @@ const Contact = () => {
                       placeholder="Share context, goals, and timelines."
                       value={formData.message}
                       onChange={handleChange}
-                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-gray-500"
+                      className="mt-2 bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     />
                   </div>
                   <Button
                     type="submit"
                     variant="brand"
                     size="lg"
-                    className="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white"
+                    className="w-full sm:w-auto bg-accent hover:bg-accent-strong text-white"
                     disabled={isSubmitting}
                     aria-busy={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send email"}
                   </Button>
 
-                  <p className="text-sm text-gray-400">
-                    Delivered privately to hello@aboh.studio — no email client required.
+                  <p className="text-sm text-white/60">
+                    Delivered privately to hello@aboh.studio - no email client required.
                   </p>
                 </div>
               </form>

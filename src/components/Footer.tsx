@@ -13,14 +13,14 @@ export const Footer = () => {
             <div className="space-y-2 text-sm text-gray-300">
               <p>
                 Email us at{" "}
-                <a href="mailto:hello@aboh.ai" className="hover:text-white transition-smooth">
-                  hello@aboh.ai
+                <a href="mailto:hello@aboh.studio" className="hover:text-white transition-smooth">
+                  hello@aboh.studio
                 </a>
               </p>
             </div>
             <div className="mt-4 flex gap-4 text-gray-300">
               <a
-                href="https://twitter.com/aboh"
+                href="https://twitter.com/aboh_studio"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="ABOH on Twitter"
@@ -29,16 +29,7 @@ export const Footer = () => {
                 <Twitter size={18} />
               </a>
               <a
-                href="https://facebook.com/aboh"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="ABOH on Facebook"
-                className="hover:text-sky-400 transition-smooth"
-              >
-                <Facebook size={18} />
-              </a>
-              <a
-                href="https://instagram.com/aboh"
+                href="https://instagram.com/aboh_studio"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="ABOH on Instagram"
@@ -50,26 +41,24 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">
-              Navigation
-            </h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Navigation</h4>
             <nav className="space-y-2">
-              <Link
-                to="/"
-                className="block text-sm text-gray-300 hover:text-white transition-smooth"
-              >
+              <Link to="/" className="block text-sm text-gray-300 hover:text-white transition-smooth">
                 Home
               </Link>
-              <Link
-                to="/services"
-                className="block text-sm text-gray-300 hover:text-sky-400 transition-smooth"
-              >
-                What we do
+              <Link to="/about" className="block text-sm text-gray-300 hover:text-white transition-smooth">
+                About
               </Link>
+              <a href="/#what-we-do" className="block text-sm text-gray-300 hover:text-white transition-smooth">
+                What we do
+              </a>
               <Link
-                to="/contact"
-                className="block text-sm text-gray-300 hover:text-sky-400 transition-smooth"
+                to="/ai-development-isle-of-man"
+                className="block text-sm text-gray-300 hover:text-white transition-smooth"
               >
+                Isle of Man AI
+              </Link>
+              <Link to="/contact" className="block text-sm text-gray-300 hover:text-sky-400 transition-smooth">
                 Contact
               </Link>
             </nav>

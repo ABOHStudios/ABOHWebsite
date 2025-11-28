@@ -13,14 +13,14 @@ const AIAgentsExplained = () => {
       "@type": "Organization",
       name: "ABOH",
     },
-    mainEntityOfPage: "https://aboh.ai/blog/ai-agents-explained",
+    mainEntityOfPage: "https://www.aboh.studio/blog/ai-agents-explained",
   };
 
   return (
     <Layout
-      title="AI Agents Explained Simply"
-      description="Learn what AI agents are, how they work, and why they will transform the future of work across industries."
-      keywords="AI agents, agentic workflows, automation, AI strategy, digital transformation"
+      title="AI Agents Explained | ABOH Studio Blog"
+      description="Learn what AI agents are, how they work, and why they will transform the future of work across industries from ABOH Studio, an Isle of Man AI company."
+      keywords="AI agents, agentic workflows, automation, AI strategy, digital transformation, Isle of Man AI"
       structuredData={structuredData}
       background="none"
     >
@@ -31,6 +31,9 @@ const AIAgentsExplained = () => {
             <h1 className="text-4xl font-semibold text-white">
               AI Agents Explained Simply: What They Are and How They Will Disrupt the Future
             </h1>
+            <p className="text-sm uppercase tracking-[0.25em] text-white/70">
+              By ABOH Studio - AI studio based in the Isle of Man
+            </p>
             <p className="text-gray-300 text-lg">
               AI agents are moving from lab experiments to production co-pilots. Here is what executives, founders, and
               product teams need to know.

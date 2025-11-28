@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Layers3, Workflow, MessageSquare, Rocket } from "lucide-react";
+import { Layers3, Workflow, MessageSquare, Rocket, MapPin } from "lucide-react";
 import {
   GoogleGeminiLogo,
   GoogleWorkspaceLogo,
@@ -66,19 +66,19 @@ const studioHighlights = [
     title: "FIT File Builder (Lab Project)",
     description:
       "An intelligent agent that generates structured workout files for Garmin, Zwift, and other training platforms using automated data modelling.",
-    link: "/services",
+    link: "/#what-we-do",
   },
   {
     title: "MCP Experiments (Lab Project)",
     description:
       "Exploring next-generation local AI tooling, integrations, and agent capabilities using the Model Context Protocol.",
-    link: "/services",
+    link: "/#what-we-do",
   },
   {
     title: "Industry Concepts",
     description:
       "Tourism assistance agents, internal workflow co-pilots, small-business automation prototypes, and more.",
-    link: "/services",
+    link: "/#what-we-do",
   },
 ];
 
@@ -93,23 +93,33 @@ const Home = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "ABOH",
-    description: "ABOH builds AI-centred systems, agents, and automations for real businesses.",
-    url: "https://aboh.ai",
-    sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+1-555-010-2030",
-      contactType: "Customer Service",
-      email: "hello@aboh.ai",
+    name: "ABOH Studio",
+    description: "ABOH Studio is a global AI studio (headquartered in the Isle of Man) building AI-centred systems, agents, and automations for real businesses.",
+    url: "https://www.aboh.studio",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Douglas",
+      addressRegion: "Isle of Man",
+      addressCountry: "IM",
     },
+    areaServed: ["Global", "Isle of Man"],
+    sameAs: ["https://twitter.com/aboh_studio"],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "Sales",
+        email: "hello@aboh.studio",
+        areaServed: "Isle of Man",
+        availableLanguage: ["English"],
+      },
+    ],
   };
 
   return (
     <Layout
-      title="Practical AI Studio"
-      description="ABOH builds intelligent systems, agents, and automations that plug directly into your operations."
-      keywords="AI systems, AI automation, conversational agents, AI integrations, ABOH"
+      title="ABOH Studio | AI systems and automation for global teams"
+      description="ABOH Studio is a global AI studio headquartered in the Isle of Man, building intelligent systems, AI agents, and automation for teams worldwide."
+      keywords="ABOH Studio, ABOH Studio Isle of Man, ABOH Studio IOM, global AI studio, AI systems, AI automation, AI Isle of Man, Isle of Man AI, AI automation studio, conversational AI"
       structuredData={structuredData}
       background="none"
       theme="dark"
@@ -117,15 +127,22 @@ const Home = () => {
       {/* Hero */}
       <section className="px-4 py-20 md:py-28 lg:py-32">
         <div className="container mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">AI innovation studio</p>
-          <h1 className="mb-6 text-4xl font-semibold text-white md:text-6xl">Practical AI for real businesses.</h1>
+          <div className="mb-4 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-accent">
+              <MapPin className="h-4 w-4" />
+              Isle of Man HQ · Global AI studio
+            </span>
+          </div>
+          <h1 className="mb-6 text-4xl font-semibold text-white md:text-6xl">
+            ABOH Studio: practical AI for global teams, rooted in the Isle of Man.
+          </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-white/80">
-            ABOH builds intelligent systems using an AI-centred approach to ensure your operations are faster, easier, and more
-            capable.
+            ABOH Studio is a global AI company (Isle of Man HQ) that builds intelligent systems using an AI-centred approach so
+            your operations are faster, easier, and more capable.
           </p>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-white/80">
-            Every engagement is built with an AI-centred mindset so your team can move quickly without reinventing every
-            workflow. Start with a conversation and leave with a plan.
+            We deliver AI agents, automation, and integrations for teams across Europe and beyond, while serving the Isle of Man
+            market locally. Start with a conversation and leave with a clear plan to deploy AI that fits your market.
           </p>
           <div className="flex flex-col items-center justify-center">
             <Link to={{ pathname: "/contact", search: "?via=agent" }}>
@@ -157,7 +174,7 @@ const Home = () => {
       </section>
 
       {/* What we do */}
-      <section className="px-4 py-20 md:py-28">
+      <section id="what-we-do" className="px-4 py-20 md:py-28">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-12 max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">What we do</p>
@@ -243,7 +260,7 @@ const Home = () => {
       {/* Final CTA */}
       <section className="px-4 pb-24">
         <div className="container mx-auto max-w-4xl rounded-[32px] border border-white/10 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-800 px-6 py-8 text-center text-white sm:px-8 sm:py-10">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Final call to action</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Ready to get started?</p>
           <h2 className="text-3xl font-semibold">Let&apos;s design your next intelligent system.</h2>
           <p className="mt-4 text-base text-white/80">
             Start with the ABOH Agent or send us your project details -- we&apos;ll come back with clear ideas and a recommended
